@@ -5,6 +5,7 @@ import com.yoh.codingexcercise.service.IcProcessCategoriesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import reactor.core.publisher.Mono;
 
 /**
  * Spring mvc controller for the rest service
@@ -21,10 +22,7 @@ public class CodingExcerciseController {
      * @return
      */
     @GetMapping("${coding.exercise.endpoint}")
-    public QuizResponseDto quiz() {
-        QuizResponseDto result = new QuizResponseDto();
-
-        result.setQuiz(processCategoriesService.getData());
-        return result;
+    public Mono<QuizResponseDto> quiz() {
+        return processCategoriesService.getData();
     }
 }

@@ -1,9 +1,8 @@
 package com.yoh.codingexcercise.service;
 
-import com.yoh.codingexcercise.rest.dto.results.QuizDto;
-
-import java.util.List;
+import com.yoh.codingexcercise.rest.dto.results.QuizResponseDto;
+import reactor.core.publisher.Mono;
 
 public interface IcProcessCategoriesService {
-    List<QuizDto> getData();
+    Mono<QuizResponseDto> getData();
 }
